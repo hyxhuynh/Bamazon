@@ -25,11 +25,13 @@ connection.connect(function(err) {
   menu();
 });
 
+// ============ MENU ============
 // function to display both the 'products' table and execute the 'welcome' function
 function menu() {
   queryTable(welcome);
 }
 
+// ============ QUERYTABLE ============
 // function to display the 'products' table
 // 'callback' parameter is used later to execute another function within the 'queryTable' function
 function queryTable(callback){
@@ -68,6 +70,7 @@ function queryTable(callback){
   });
 }
 
+// ============ WELCOME ============
 // function to confirm if the customer is purchasing anything
 function welcome() {
   inquirer
@@ -91,6 +94,7 @@ function welcome() {
     });
 }
 
+// ============ CONFIRM NEXT PURCHASE ============
 // function to confirm if the customer is doing the NEXT purchase
 function confirmNextPurchase() {
   inquirer
@@ -114,6 +118,7 @@ function confirmNextPurchase() {
     });
 }
 
+// ============ PAID OR UNPAID ============
 // function to confirm if the customer is paying for the purchase
 function paidOrUnpaid(callback) {
   inquirer
@@ -139,6 +144,7 @@ function paidOrUnpaid(callback) {
     });
 }
 
+// ============ UPDATE INVENTORY ============
 // function to update the inventory (aka 'products' table) when the customer paid (successfully purchase) the item(s)
 function updateInventory(itemID, updatedStock) {
   connection.query(
@@ -162,6 +168,7 @@ function updateInventory(itemID, updatedStock) {
   );
 }
 
+// ============ PURCHASE ============
 // function to manage the purchasing part using 'inquirer'
 function purchase() {
   inquirer
